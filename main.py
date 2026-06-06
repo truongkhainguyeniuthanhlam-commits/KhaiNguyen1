@@ -141,6 +141,21 @@ def is_owner():
 # ║                        COMPONENTS V2 HELPERS                                ║
 # ╚══════════════════════════════════════════════════════════════════════════════╝
 
+# ── Bot instance ──────────────────────────────────────────────────────────────
+intents = discord.Intents.default()
+intents.members        = True
+intents.message_content = True
+intents.guilds         = True
+intents.invites        = True
+
+bot = commands.Bot(
+    command_prefix=PREFIX,
+    intents=intents,
+    help_command=None,
+)
+
+log.info("Starting Bot  |  Owner ID: %d", OWNER_ID)
+
 V2_FLAG = 1 << 15
 
 def _text(content: str) -> dict:
