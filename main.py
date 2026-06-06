@@ -226,7 +226,7 @@ async def _v2_followup(
     ephemeral: bool = True,
 ) -> None:
     flags   = V2_FLAG | (64 if ephemeral else 0)
-    url     = f"https://discord.com/api/v10/webhooks/{interaction.application_id}/{interaction.token}"
+    url     = f"https://discord.com/api/v10/webhooks/{interaction.application_id}/{interaction.token}?wait=true"
     headers = {"Authorization": f"Bot {TOKEN}", "Content-Type": "application/json"}
     payload = {"flags": flags, "components": components}
     async with aiohttp.ClientSession() as s:
